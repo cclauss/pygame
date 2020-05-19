@@ -28,6 +28,7 @@ jobs:
       env:
         - PPC=yes
     - os: linux
+      dist: xenial
       python: 3.7
       arch: arm64
       env:
@@ -127,6 +128,7 @@ after_success:
 
 
 deploy:
+  skip_cleanup: true
   # https://docs.travis-ci.com/user/deployment/releases/
   - provider: releases
     api_key:
@@ -134,7 +136,6 @@ deploy:
     file_glob: true
     file:
       - dist/*.whl
-    skip_cleanup: true
     draft: true
     on:
       all_branches: true
