@@ -4,13 +4,19 @@
 PYTHON = python
 
 build: Setup setup.py
+	$(PYTHON) -m pip install setuptools
 	$(PYTHON) setup.py build
+	$(PYTHON) -m pip install setuptools
 
 install: Setup setup.py
+	$(PYTHON) -m pip install setuptools
 	$(PYTHON) setup.py install
+	$(PYTHON) -m pip install setuptools
 
 Setup:
+	$(PYTHON) -m pip install setuptools
 	$(PYTHON) configure.py
+	$(PYTHON) -m pip install setuptools
 
 check tests:
 	$(PYTHON) run_tests.py
